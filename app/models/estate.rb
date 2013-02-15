@@ -1,10 +1,8 @@
 class Estate < ActiveRecord::Base
   attr_accessible :due_dates, :estate_code, :service_charge_period
 
-  def due_dates_for_year(year)
-    self.due_dates.split(',').collect do |d| 
-      Time.parse "#{d.strip} #{year}"
-    end 
+  def due_dates_list
+      self.due_dates.split( ',').collect do |d| d.strip end
   end
 
   
@@ -14,9 +12,9 @@ class Estate < ActiveRecord::Base
     ee = Estate.all
     ee.each do |e|
       puts '-----------'
-      #p e
-      dd = e.due_dates_for_year year
-      dd.each do |d|
+      dd = e.due_dates_list
+      dd.each do |dm|
+        d = Time.parse "#{dm} #{year}"
         if e.service_charge_period == "Quarterly"          
           rd = d - 1.month
         elsif e.service_charge_period == "Twice a year"
@@ -24,8 +22,8 @@ class Estate < ActiveRecord::Base
         else
           raise "wrong service charge period in the database"
         end
-        if date >= rd and date <= d
-          p e
+        if rd <= date and date <= d
+          puts "#{e.estate_code} due date #{dm} #{year}"
         end
       end
     end
