@@ -7,23 +7,29 @@ class Estate < ActiveRecord::Base
     end 
   end
 
+  
   def remind(date)
-    rd=Time.parse date
-    year = rd.year
+    date = Time.parse date
+    year = date.year
     ee = Estate.all
     ee.each do |e|
-      p e
+      puts '-----------'
+      #p e
       dd = e.due_dates_for_year year
       dd.each do |d|
-        p d
-        if e.service_charge_period == "Quarterly"
-          
+        if e.service_charge_period == "Quarterly"          
+          rd = d - 1.month
         elsif e.service_charge_period == "Twice a year"
+          rd = d - 2.months
         else
           raise "wrong service charge period in the database"
         end
+        if date >= rd and date <= d
+          p e
+        end
       end
     end
+    ''
   end
 
 end
