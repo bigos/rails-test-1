@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  estate_code: MyString
+  service_charge_period: MyString
+  due_dates: MyString
+
+two:
+  estate_code: MyString
+  service_charge_period: MyString
+  due_dates: MyString

@@ -1,0 +1,27 @@
+<h1>Listing estates</h1>
+
+<table>
+  <tr>
+    <th>Estate code</th>
+    <th>Service charge period</th>
+    <th>Due dates</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estates.each do |estate| %>
+  <tr>
+    <td><%= estate.estate_code %></td>
+    <td><%= estate.service_charge_period %></td>
+    <td><%= estate.due_dates %></td>
+    <td><%= link_to 'Show', estate %></td>
+    <td><%= link_to 'Edit', edit_estate_path(estate) %></td>
+    <td><%= link_to 'Destroy', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estate', new_estate_path %>
