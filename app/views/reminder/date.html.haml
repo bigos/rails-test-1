@@ -1,0 +1,8 @@
+%h1 Reminder#date
+%p Find me in app/views/reminder/date.html.haml
+
+%div
+  - @results.each do |r|
+    %p= r.inspect
+%p
+  = params.inspect
