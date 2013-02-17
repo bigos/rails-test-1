@@ -4,7 +4,7 @@ As a developer
 I want to test reminder dates
 
 Scenario: Reminder Scenario
-  Given I load the database with example data
+  Given example data
   When the date is <test_date>
   Then found reminders should include <result>
   And found reminders count should be <c>
