@@ -1,4 +1,6 @@
 RailsTest1::Application.routes.draw do
+  get "reminder/date"
+
   resources :estates
 
 
