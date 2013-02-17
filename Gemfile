@@ -41,6 +41,7 @@ group :test, :development do
   gem "rspec-rails", "~> 2.4"
 end
 
+gem 'cucumber'
+
 gem 'haml-rails'
-gem 'hpricot'     #needed for haml
 gem 'html2haml'
