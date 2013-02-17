@@ -43,5 +43,4 @@ end
 
 gem 'haml-rails'
 gem 'hpricot'     #needed for haml
-gem 'ruby_parer' #needed for haml
 gem 'html2haml'
